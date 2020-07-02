@@ -46,9 +46,10 @@ caption {
 
 
 .menu {
-  margin-top: 3rem;
+  margin-top: 5rem;
   margin-left: -1rem;
   display: block;
+
 }
 
 .contact {
@@ -88,6 +89,16 @@ margin-left: 3rem;
    z-index: 990;
    background-color: rgba(0, 0, 0, 1);
 }
+
+
+.stickyeffect{
+    position: sticky;
+    top: 70px;
+  }
+
+
+
+/* Borda  */
 
 #websiteFrameTop {
    top: 0;
