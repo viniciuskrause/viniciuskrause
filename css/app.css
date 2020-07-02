@@ -32,6 +32,11 @@ a:hover {
 }
 
 
+a:visited {
+  color: rgba(0,0,0,.6);
+}
+
+
 caption {
   font-size: 0.5rem;
 }
@@ -46,6 +51,9 @@ caption {
   display: block;
 }
 
+.contact {
+  margin-top: 15rem;
+}
 
 
 
@@ -60,9 +68,16 @@ caption {
 }
 
 
-
 .about-img {
 margin-left: 5rem;
+}
+
+.vertical-img {
+margin-left: 5rem;
+}
+
+.archive-img {
+margin-left: 3rem;
 }
 
 
