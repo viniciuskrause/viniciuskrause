@@ -1,9 +1,36 @@
+
+
+/* mobile ONLY ------------------------------------ */
+
+@media only screen and (max-width: 600px) {
+
+
+
+  .cover {
+    margin-left: 4rem;
+    maring-top: 1rem !important;
+
+          }
+
+  p{
+    font-size: 1rem !important;
+  }
+
+  a {
+    font-size: 1rem !important;
+}
+
+
+}
+/* mobile ONLY end ------------------------------------ */
+
+
+
+
 body {
   font-family: 'Avenir-Light', sans-serif;
   max-width: 960px;
   margin: auto;
-
-
 }
 
 h1 {
@@ -92,13 +119,7 @@ margin-left: 3rem;
 }
 
 
-/* borda */
 
-.websiteFrame {
-   position: fixed;
-   z-index: 990;
-   background-color: rgba(0, 0, 0, 1);
-}
 
 
 .stickyeffect{
@@ -109,6 +130,12 @@ margin-left: 3rem;
 
 
 /* Borda  */
+
+.websiteFrame {
+   position: fixed;
+   z-index: 990;
+   background-color: rgba(0, 0, 0, 1);
+}
 
 #websiteFrameTop {
    top: 0;
