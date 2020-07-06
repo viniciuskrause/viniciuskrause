@@ -172,7 +172,7 @@ caption {
 
 @media (min-width: 1024px) {
   .view-navigations {
-    bottom: 4rem;
+    bottom: 50vh;
     left: 4rem;
   }
 }
