@@ -151,15 +151,15 @@ caption {
 }
 
 .view-navigations .menu li {
-  margin: .5rem 0;
+  margin: .6rem 0;
 }
 
 .view-navigations .menu a {
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 16px;
+  height: 16px;
   padding: 0;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #000;
   opacity: .2;
   transition: opacity .2s ease;
@@ -172,7 +172,7 @@ caption {
 @media (min-width: 1024px) {
   .view-navigations {
     bottom: 50vh;
-    right: 6rem;
+    right: 8rem;
   }
 
   @media (max-width: 600px) {
