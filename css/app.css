@@ -83,9 +83,6 @@ caption {
 }
 
 
-
-
-
 .contact {
   margin-top: 15rem;
 }
@@ -127,7 +124,7 @@ caption {
 
 .cover nav .menu a.is-active {
   opacity: 1;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .content-row {
@@ -141,7 +138,11 @@ caption {
 
 .menu.contact {
   margin-left: -1rem;
+  margin-top: -80px;
 }
+
+/* Bolinhas  */
+
 
 .view-navigations {
   position: fixed;
