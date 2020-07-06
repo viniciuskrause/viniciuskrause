@@ -127,6 +127,7 @@ caption {
 
 .cover nav .menu a.is-active {
   opacity: 1;
+  font-weight: bold;
 }
 
 .content-row {
