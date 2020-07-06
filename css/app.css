@@ -137,7 +137,7 @@ caption {
 
 .menu.contact {
   margin-left: -1rem;
-  margin-top: -80px;
+  margin-top: 0px;
 }
 
 /* Bolinhas  */
@@ -146,7 +146,7 @@ caption {
 .view-navigations {
   position: fixed;
   bottom: 2rem;
-  left: 2rem;
+  right: : 3rem;
   transition: all .2s ease;
 }
 
@@ -172,8 +172,14 @@ caption {
 @media (min-width: 1024px) {
   .view-navigations {
     bottom: 50vh;
-    left: 4rem;
+    right: 6rem;
   }
+
+  @media (max-width: 600px) {
+    .view-navigations {
+      display: none;
+    }
+
 }
 
 
