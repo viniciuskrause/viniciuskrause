@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinícius Krause — Product Designer</title>
+  <meta name="description" content="Portfolio of Vinícius Krause, a Brazilian Product Designer based in Munich.">
+  <link rel="icon" href="assets/site-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <div class="identity">
+        <button class="pronunciation" type="button" aria-label="Hear how to pronounce Vinícius Krause">
+          <img src="assets/volume.svg" width="24" height="24" alt="">
+          <span>/ vinˈisiwʃ /</span>
+        </button>
+        <audio id="name-audio" src="assets/name.m4a" preload="none"></audio>
+        <div class="name-row">
+          <div class="name-text">
+            <h1 class="title-1">Vinícius Krause</h1>
+            <p class="title-1 role">Product Designer</p>
+          </div>
+          <img class="site-icon" src="assets/site-icon.png" width="66" height="67" alt="site icon">
+        </div>
+      </div>
+
+      <p class="bio body">I led design at global companies like Visa, Experian, and Freeletics, creating digital products to solve complex problems. With over 16 years of experience, I combine product strategy with hands-on design and AI magic. Based in Munich, working globally. <a href="about.html">Learn&nbsp;more&nbsp;→</a></p>
+
+      <nav class="contact-links contact-links--wide" aria-label="Contact">
+        <a class="body" href="mailto:kr.vinicius@gmail.com">Email</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a class="body" href="https://www.linkedin.com/in/viniciuskrause/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a class="body" href="https://drive.google.com/file/d/1AdQCiODxEdGoMbW8iYMGme-kXmjX9AOx/view?usp=sharing" target="_blank" rel="noopener">CV</a>
+      </nav>
+    </header>
+
+    <section class="section work" aria-labelledby="work-title">
+      <h2 class="title-2" id="work-title">Latest Work</h2>
+
+      <ul class="projects">
+        <li>
+          <a class="project" href="visa-brands.html">
+            <div class="project-text">
+              <h3 class="title-3"><span class="client">Visa</span> AI-Driven Design System Theming</h3>
+              <p class="body project-tags">AI, Mobile, Desktop, UI Craft, Design System, Product strategy&nbsp;→</p>
+            </div>
+            <div class="project-media project-media--visa-theming">
+              <div class="flip-card">
+                <img class="flip-card-face" src="assets/work-visa-theming.png" alt="Visa-themed banking app home screen">
+                <img class="flip-card-face flip-card-back" src="assets/work-visa-theming-2.png" alt="The same app themed for the Aries brand">
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="project" href="visa-accept.html">
+            <div class="project-text">
+              <h3 class="title-3"><span class="client">Visa</span> Turning Smartphones Into Payment Terminals</h3>
+              <p class="body project-tags">Mobile, UI Craft, Team Management, Design System, Product strategy&nbsp;→</p>
+            </div>
+            <div class="project-media project-media--visa-terminals">
+              <img src="assets/work-visa-terminals.png" alt="Tap to pay screen and payment successful screen">
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="project" href="freeletics.html">
+            <div class="project-text">
+              <h3 class="title-3"><span class="client">Freeletics</span> Onboarding Growth Hacks</h3>
+              <p class="body project-tags">Mobile, Desktop, UI Craft, User Research, Product strategy, Marketing Performance&nbsp;→</p>
+            </div>
+            <div class="project-media project-media--freeletics">
+              <img src="assets/work-freeletics-1.png" alt="Freeletics onboarding screen: Build Muscle">
+              <img src="assets/work-freeletics-2.png" alt="Freeletics onboarding screen: Get Fit">
+              <img src="assets/work-freeletics-3.png" alt="Freeletics onboarding screen: Lose Weight">
+            </div>
+          </a>
+        </li>
+      </ul>
+
+      <a class="body more-work" href="work.html">More work →</a>
+    </section>
+
+    <footer class="section footer">
+      <h2 class="title-2">Let’s talk</h2>
+      <nav class="contact-links" aria-label="Contact">
+        <a class="body" href="mailto:kr.vinicius@gmail.com">Email</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a class="body" href="https://www.linkedin.com/in/viniciuskrause/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a class="body" href="https://drive.google.com/file/d/1AdQCiODxEdGoMbW8iYMGme-kXmjX9AOx/view?usp=sharing">CV</a>
+      </nav>
+    </footer>
+  </main>
+  <script>
+    // Plays the pronunciation of the name
+    const nameAudio = document.getElementById('name-audio');
+    document.querySelector('.pronunciation').addEventListener('click', () => {
+      nameAudio.currentTime = 0;
+      nameAudio.play();
+    });
+  </script>
+</body>
+</html>

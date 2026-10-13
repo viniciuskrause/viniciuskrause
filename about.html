@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Vinícius Krause</title>
+  <meta name="description" content="About Vinícius Krause, a Brazilian Product Designer based in Munich.">
+  <link rel="icon" href="assets/site-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <nav class="breadcrumb body" aria-label="Breadcrumb">
+      <a href="index.html">Home /</a>
+      <a href="work.html">Work /</a>
+      <a class="breadcrumb-current" href="about.html" aria-current="page">About /</a>
+    </nav>
+
+    <div class="title-block">
+      <h1 class="title-1">About me</h1>
+
+      <div class="photo-toggle">
+        <div class="photo-toggle-photo">
+          <img class="photo-corp" src="assets/about-portrait-corp.png" alt="Vinícius Krause">
+          <img class="photo-casual" src="assets/about-portrait-casual.png" alt="Vinícius Krause">
+        </div>
+        <button class="corp-toggle body" type="button" aria-pressed="true">
+          <span class="corp-toggle-track" aria-hidden="true"><span class="corp-toggle-knob"></span></span>
+          Corp mode
+        </button>
+      </div>
+
+      <div class="prose body about-intro">
+        <p>I have been spent the years since 2008 designing digital products for different industries like media groups, healthcare, finance, agencies and Saas.</p>
+        <p>Products used by many people and made by companies like Visa, Philips, Freeletics, Experian, Globo.com and Wunderman Thompson.</p>
+        <p>Always taking care of the design process as a whole and with special passion about Design Systems, Content Strategy and Product Strategy.</p>
+      </div>
+    </div>
+
+    <section class="about-life" aria-labelledby="life-title">
+      <div class="about-life-text">
+        <h2 class="title-3" id="life-title">But work isn’t all, at all.</h2>
+        <div class="prose body">
+          <p>I try to live the dream in a small village next to Munich and close to the Bavarian Alps, with my wife my two boys and our black lab Nelson.</p>
+          <p>I really enjoy woodworking, walking around mountains and lakes, eating like a pre-historic man and playing the guitar.</p>
+          <p>I don’t have an instagram account, so please ask me about these things.</p>
+        </div>
+      </div>
+      <img class="about-life-photo" src="assets/about-family.png" alt="Vinícius with his family at a fair">
+    </section>
+
+    <footer class="section footer">
+      <h2 class="title-2">Let’s talk</h2>
+      <nav class="contact-links" aria-label="Contact">
+        <a class="body" href="mailto:kr.vinicius@gmail.com">Email</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a class="body" href="https://www.linkedin.com/in/viniciuskrause/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="dot" aria-hidden="true">·</span>
+        <a class="body" href="https://drive.google.com/file/d/1AdQCiODxEdGoMbW8iYMGme-kXmjX9AOx/view?usp=sharing">CV</a>
+      </nav>
+    </footer>
+  </main>
+
+  <script>
+    // Corp mode: swaps the portrait between the corporate and casual photo
+    const toggle = document.querySelector('.corp-toggle');
+    const photoToggle = document.querySelector('.photo-toggle');
+    toggle.addEventListener('click', () => {
+      const on = toggle.getAttribute('aria-pressed') !== 'true';
+      toggle.setAttribute('aria-pressed', on);
+      photoToggle.classList.toggle('is-casual', !on);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,404 @@
+/* Tokens from the Figma file (Portfolio / home) */
+:root {
+  --color-bg: #fff;
+  --color-text: #121212;
+  --color-accent: #2e67ab;
+  --color-border: #bebebe;
+  --color-visa: #1434cb;
+  --color-freeletics: #1a1a1c;
+
+  /* Type scale: design values at 1280px, scaled down fluidly on small screens */
+  --lh-title-1: 1.35;
+  --fs-title-1: clamp(2rem, 1.4rem + 2.6vw, 3rem);     /* 48px */
+  --fs-title-2: clamp(1.875rem, 1.4rem + 1.8vw, 2.5rem);  /* 40px */
+  --fs-title-3: clamp(1.375rem, 1rem + 1.4vw, 2rem);      /* 32px */
+  --fs-body: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem);    /* 24px */
+  --fs-lead: clamp(1.1875rem, 1rem + 0.8vw, 1.625rem);  /* 26px, a step above body */
+
+  --page-max: 960px;
+  --page-pad-x: clamp(20px, 12.5vw, 160px);
+  --page-pad-y: clamp(48px, 9.4vw, 120px);
+
+  /* Spacing scale, largest to smallest:
+     between sections > groups within a section > heading to its content
+     > related items > tight pairs (label/title, name/role) */
+  --space-section: 80px;
+  --space-group: 56px;
+  --space-heading: 48px;
+  --space-related: 24px;
+  --space-tight: 8px;
+  --page-gap: var(--space-section);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+
+/* Hover matches the live site: fade to 70% opacity, 300ms ease-out-cubic */
+a, .project-text {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/* Project rows fade only their text, never the preview image */
+a:not(.project):hover, .project:hover .project-text { opacity: 0.7; }
+a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; border-radius: 4px; }
+
+img { display: block; max-width: 100%; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* Client name at the start of project titles */
+.client { color: var(--color-accent); }
+.client::after { content: "/"; content: "/" / ""; } /* separator, hidden from screen readers */
+
+/* Text styles */
+.title-1 { font-size: var(--fs-title-1); font-weight: 800; line-height: var(--lh-title-1); }
+.title-2 { font-size: var(--fs-title-2); font-weight: 800; line-height: normal; }
+.title-3 { font-size: var(--fs-title-3); font-weight: 800; line-height: normal; }
+.body { font-size: var(--fs-body); line-height: 1.5; }
+
+/* Layout */
+.page {
+  max-width: calc(var(--page-max) + 2 * var(--page-pad-x));
+  margin: 0 auto;
+  padding: var(--page-pad-y) var(--page-pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap);
+}
+
+/* Intro */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-group);
+  /* Puts the name at the same height as the inner-page titles:
+     (breadcrumb line + its 1px underline + page gap) - (pronunciation line + 8px gap) */
+  padding-top: calc(var(--fs-body) * (1.5 - 1.335) + 1px + var(--page-gap) - 8px);
+}
+.identity { display: flex; flex-direction: column; gap: var(--space-tight); }
+
+.pronunciation {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: 1.335;
+  cursor: pointer;
+  transition: opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.pronunciation:hover { opacity: 0.7; }
+.pronunciation:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; border-radius: 4px; }
+.pronunciation img { flex: none; width: 24px; height: 24px; }
+
+.name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.name-text { display: flex; flex-direction: column; gap: var(--space-tight); }
+/* Sized from the name + role block (two title-1 lines plus the 8px gap),
+   inset by 10% on every side so it sits slightly inside that block */
+.site-icon {
+  --block-h: calc(2 * var(--lh-title-1) * var(--fs-title-1) + 8px);
+  flex: none;
+  width: auto;
+  height: calc(var(--block-h) * 0.8);
+  margin: calc(var(--block-h) * 0.1);
+  object-fit: cover;
+}
+.role { color: var(--color-accent); }
+
+.bio { font-size: var(--fs-lead); font-weight: 500; }
+.bio a { font-weight: 400; }
+
+.contact-links { display: flex; flex-wrap: wrap; gap: 8px 12px; }
+.contact-links--wide { column-gap: 16px; }
+.contact-links .dot { font-size: var(--fs-body); line-height: 1.5; }
+
+/* Sections */
+.section {
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sections open with the same space below the divider as above it */
+.work { padding-top: var(--page-gap); gap: var(--space-heading); }
+
+.projects { list-style: none; display: flex; flex-direction: column; gap: var(--space-group); }
+
+/* Project row: text on the left, preview panel on the right */
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-related);
+}
+.project-text { flex: 1; max-width: 467px; display: flex; flex-direction: column; gap: var(--space-tight); }
+.project-tags { max-width: 419px; }
+/* Client name sits on its own line here, without the slash used in the work list */
+.project .client { display: block; }
+.project .client::after { content: none; }
+
+/* Preview panels; image positions are % of the 469×365 Figma panel */
+.project-media {
+  position: relative;
+  flex: 0 1 469px;
+  aspect-ratio: 469 / 365;
+  border-radius: 11px;
+  overflow: hidden;
+}
+.project-media img { position: absolute; }
+.project-media--visa-theming { background: var(--color-visa); }
+.project-media--visa-theming { perspective: 1600px; }
+
+/* Flip card: the app screen turns over to reveal the same app in another brand theme */
+.flip-card {
+  position: absolute;
+  width: 54.78%;
+  left: 50%;
+  top: 13.53%;
+  aspect-ratio: 260 / 648;
+  margin-left: -27.39%;
+  transform-style: preserve-3d;
+  animation: flip-card 6s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+}
+.project-media .flip-card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+  border-radius: 10.04% / 4.03%; /* 26px corners from the Figma screen */
+}
+/* 6s cycle: each side is visible for 3s (2.2s still + half of each 0.8s turn);
+   keeps turning the same way */
+@keyframes flip-card {
+  0%, 36.67%   { transform: rotateY(0deg); }
+  50%, 86.67%  { transform: rotateY(180deg); }
+  100%         { transform: rotateY(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-card { animation: none; }
+}
+.project-media--visa-terminals { background: #f3f4f7; }
+.project-media--visa-terminals img { inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.project-media--freeletics { background: var(--color-freeletics); }
+.project-media--freeletics img { width: 27.23%; top: 12.07%; }
+.project-media--freeletics img:nth-child(1) { left: 7.89%; }
+.project-media--freeletics img:nth-child(2) { left: 36.39%; }
+.project-media--freeletics img:nth-child(3) { left: 64.9%; }
+
+/* A group's distance from the list (the section gap already adds the heading space) */
+.more-work { align-self: flex-start; margin-top: calc(var(--space-group) - var(--space-heading)); }
+
+/* Inner pages: title sits closer to its own content than sections do to each other */
+.title-block { display: flex; flex-direction: column; gap: var(--space-heading); }
+
+/* Breadcrumb (inner pages) */
+.breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.breadcrumb-current { font-weight: 700; border-bottom: 1px solid currentColor; }
+
+/* Work list */
+.work-list { --row-h: 120px; list-style: none; }
+.work-list li {
+  display: flex;
+  align-items: center;
+  min-height: var(--row-h);
+  border-bottom: 0.5px solid var(--color-text);
+}
+.work-list li:first-child { border-top: 0.5px solid var(--color-text); }
+.work-list a { flex: 1; padding: 24px 0; }
+/* Last row has no bottom line: keep only its top half so no empty space trails the list */
+.work-list li:last-child { min-height: 0; border-bottom: 0; }
+.work-list li:last-child a { padding: calc(var(--row-h) / 2 - 0.61em) 0 0; }
+
+@media (max-width: 560px) {
+  .work-list { --row-h: 88px; }
+  .work-list a { padding: 16px 0; }
+}
+
+/* About page */
+.prose { display: flex; flex-direction: column; gap: 1.5em; }
+.about-intro { max-width: 713px; margin-top: calc(var(--space-group) - var(--space-heading)); }
+
+.photo-toggle { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-related); }
+.photo-toggle-photo {
+  position: relative;
+  flex: none;
+  width: clamp(200px, 23.75vw, 304px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(46, 103, 171, 0.13);
+}
+.photo-toggle-photo img {
+  position: absolute;
+  max-width: none;
+  transition: opacity 0.3s linear;
+}
+/* Crops from the Figma component, as % of the 304px circle */
+.photo-corp { width: 104.28%; left: -1.98%; top: 0; transform: rotate(-4.35deg); }
+.photo-casual { width: 163.49%; left: -28.95%; top: -13.49%; opacity: 0; }
+.photo-toggle.is-casual .photo-corp { opacity: 0; }
+.photo-toggle.is-casual .photo-casual { opacity: 1; }
+
+.corp-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.corp-toggle:hover { opacity: 0.7; }
+.corp-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; border-radius: 4px; }
+.corp-toggle-track {
+  position: relative;
+  flex: none;
+  width: 56px;
+  height: 32px;
+  border-radius: 100px;
+  background: rgba(46, 103, 171, 0.5);
+  box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.15), inset 0 -0.5px 1px rgba(94, 94, 94, 0.3);
+  transition: background 0.3s linear;
+}
+.corp-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22);
+  transition: transform 0.3s linear;
+}
+.corp-toggle[aria-pressed="true"] .corp-toggle-track { background: var(--color-accent); }
+.corp-toggle[aria-pressed="true"] .corp-toggle-knob { transform: translateX(24px); }
+
+.about-life { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-heading); }
+.about-life-text { flex: 1; max-width: 631px; display: flex; flex-direction: column; gap: var(--space-heading); }
+.about-life-photo {
+  flex: none;
+  width: 342px;
+  aspect-ratio: 342 / 402;
+  object-fit: cover;
+  border-radius: 16.5px;
+}
+
+@media (max-width: 800px) {
+  /* Project rows stack with the preview on top */
+  .project { flex-direction: column-reverse; align-items: stretch; }
+  .project-media { flex: none; width: 100%; }
+  .about-life { flex-direction: column; }
+  .about-life-photo { width: 100%; max-width: 342px; }
+}
+
+/* Dark theme (case studies): same tokens, inverted colors */
+.theme-dark {
+  --color-bg: #0d151a;
+  --color-text: #fff;
+  --color-accent: #91bff5;
+  --color-border: rgba(255, 255, 255, 0.5);
+}
+.theme-dark .breadcrumb a:not(.breadcrumb-current) { color: rgba(255, 255, 255, 0.5); }
+.breadcrumb--center { justify-content: center; }
+
+/* Case study page: centered reading column, full-bleed image gallery */
+.case {
+  padding: var(--page-pad-y) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-gap);
+}
+.case > .breadcrumb { padding-inline: var(--page-pad-x); }
+.case-article,
+.case-end {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: var(--page-pad-x);
+  display: flex;
+  flex-direction: column;
+}
+.case-article { max-width: calc(782px + 2 * var(--page-pad-x)); gap: var(--space-heading); }
+.case-title { max-width: 660px; }
+
+/* Article rhythm in line units: one blank line between paragraphs, two between sections */
+.case-body { display: flex; flex-direction: column; gap: 3em; }
+.case-body section { display: flex; flex-direction: column; gap: 1.5em; }
+.case-body ul { padding-left: 1.25em; list-style: disc; }
+.case-meta { margin: 0; display: flex; flex-direction: column; gap: 1.5em; }
+.case-meta dd { margin: 0; }
+
+.case-gallery { display: flex; flex-direction: column; align-items: center; gap: var(--space-group); }
+.case-gallery img { width: 100%; max-width: 1440px; height: auto; }
+.case-gallery-band {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  background: #171717;
+}
+.case-gallery-band img { max-width: 800px; }
+/* Image sets designed at 1184px sit inside the page instead of running full-bleed */
+.case-gallery--inset { padding-inline: var(--page-pad-x); }
+.case-gallery--inset img { max-width: 1184px; }
+
+/* Inline links in article text */
+.case-body p a, .case-body li a { text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
+.case-body strong { font-weight: 700; }
+
+.case-end { max-width: calc(var(--page-max) + 2 * var(--page-pad-x)); gap: var(--page-gap); }
+.case-more { display: flex; flex-direction: column; gap: var(--space-heading); }
+
+/* Footer */
+.footer { padding-top: var(--page-gap); gap: var(--space-heading); }
+
+/* Narrow screens: slimmer side padding so the name stays on one line next to the icon */
+@media (max-width: 640px) {
+  :root { --page-pad-x: 24px; }
+}
+
+/* Small screens: same hierarchy on a tighter scale */
+@media (max-width: 560px) {
+  :root {
+    --space-section: 56px;
+    --space-group: 32px;
+    --space-heading: 24px;
+    --space-related: 16px;
+  }
+}
