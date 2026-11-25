@@ -357,6 +357,59 @@ img { display: block; max-width: 100%; }
 .case-article { max-width: calc(782px + 2 * var(--page-pad-x)); gap: var(--space-heading); }
 .case-title { max-width: 660px; }
 
+/* Case hero: title over the final UI screens, side by side */
+.case-hero {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-inline: var(--page-pad-x);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-heading);
+  text-align: center;
+}
+.case-hero .case-title { max-width: 820px; }
+.case-hero-lead { max-width: 640px; color: rgba(255, 255, 255, 0.7); }
+.case-hero-stage {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  gap: 3%;
+  margin-top: calc(var(--space-group) - var(--space-heading));
+  padding: clamp(16px, 3vw, 40px) 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  isolation: isolate;
+}
+/* Aries brand glow behind the phones */
+.case-hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 12%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 50% 60% at 50% 55%, var(--hero-glow, rgba(31, 181, 160, 0.6)), transparent 70%),
+    radial-gradient(ellipse 35% 40% at 72% 72%, var(--hero-glow-2, rgba(255, 99, 25, 0.25)), transparent 70%);
+  filter: blur(20px);
+}
+.case-hero-stage img {
+  height: auto;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.55));
+}
+.case-hero-phone--side { width: 29%; margin-bottom: 4%; }
+.case-hero-phone--main { position: relative; z-index: 1; width: 33%; }
+/* Glow colors per case */
+.case-hero--visa { --hero-glow: rgba(20, 52, 203, 0.65); --hero-glow-2: rgba(145, 191, 245, 0.2); }
+.case-hero--freeletics { --hero-glow: rgba(40, 60, 255, 0.5); --hero-glow-2: rgba(255, 255, 255, 0.08); }
+/* Small screens: the stage runs edge to edge so the screens stay readable */
+@media (max-width: 640px) {
+  .case-hero-stage { width: calc(100% + 2 * var(--page-pad-x)); max-width: none; margin-inline: calc(-1 * var(--page-pad-x)); padding-inline: 12px; }
+  .case-hero-phone--side { width: 30%; }
+  .case-hero-phone--main { width: 34%; }
+}
+
 /* Article rhythm in line units: one blank line between paragraphs, two between sections */
 .case-body { display: flex; flex-direction: column; gap: 3em; }
 .case-body section { display: flex; flex-direction: column; gap: 1.5em; }
