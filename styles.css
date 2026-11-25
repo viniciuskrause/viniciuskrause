@@ -116,25 +116,15 @@ img { display: block; max-width: 100%; }
 
 .name-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
 }
 .name-text { display: flex; flex-direction: column; gap: var(--space-tight); }
-/* Sized from the name + role block (two title-1 lines plus the 8px gap),
-   inset by 10% on every side so it sits slightly inside that block */
-.site-icon {
-  --block-h: calc(2 * var(--lh-title-1) * var(--fs-title-1) + 8px);
-  flex: none;
-  width: auto;
-  height: calc(var(--block-h) * 0.8);
-  margin: calc(var(--block-h) * 0.1);
-  object-fit: cover;
-}
 .role { color: var(--color-accent); }
 
 .bio { font-size: var(--fs-lead); font-weight: 500; }
-.bio a { font-weight: 400; }
+.bio a { font-weight: 700; color: var(--color-accent); }
 
 .contact-links { display: flex; flex-wrap: wrap; gap: 8px 12px; }
 .contact-links--wide { column-gap: 16px; }
@@ -219,7 +209,7 @@ img { display: block; max-width: 100%; }
 .project-media--freeletics img:nth-child(3) { left: 64.9%; }
 
 /* A group's distance from the list (the section gap already adds the heading space) */
-.more-work { align-self: flex-start; margin-top: calc(var(--space-group) - var(--space-heading)); }
+.more-work { align-self: flex-start; margin-top: calc(var(--space-group) - var(--space-heading)); font-weight: 700; color: var(--color-accent); }
 
 /* Inner pages: title sits closer to its own content than sections do to each other */
 .title-block { display: flex; flex-direction: column; gap: var(--space-heading); }
