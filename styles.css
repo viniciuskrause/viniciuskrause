@@ -408,15 +408,28 @@ img { display: block; max-width: 100%; }
 .case-meta dd { margin: 0; }
 
 .case-gallery { display: flex; flex-direction: column; align-items: center; gap: var(--space-group); }
+/* Titled galleries: more room between items than between a heading and its image */
+.case-gallery:has(.case-figure) { gap: calc(var(--space-section) * 1.5); }
 .case-gallery img { width: 100%; max-width: 1440px; height: auto; }
-.case-gallery-band {
+/* Gallery image with its title as live text on the page, just above the image */
+.case-figure {
   width: 100%;
   max-width: 1440px;
+  margin: 0;
   display: flex;
-  justify-content: center;
-  background: #171717;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-heading);
 }
-.case-gallery-band img { max-width: 800px; }
+.case-figure figcaption {
+  align-self: stretch;
+  padding-inline: var(--page-pad-x);
+  text-align: center;
+}
+.case-gallery--inset .case-figure figcaption { padding-inline: 0; }
+/* Narrow portrait image, kept at its design width */
+.case-gallery img.case-figure-narrow { max-width: 800px; }
+.case-gallery--inset .case-figure { max-width: 1184px; }
 /* Image sets designed at 1184px sit inside the page instead of running full-bleed */
 .case-gallery--inset { padding-inline: var(--page-pad-x); }
 .case-gallery--inset img { max-width: 1184px; }
